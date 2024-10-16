@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="init commit">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="building form 1, two doors, a potential wall">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Characters.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Movement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
     </list>
@@ -69,7 +71,14 @@
       <option name="project" value="LOCAL" />
       <updated>1728753291670</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="building form 1, two doors, a potential wall">
+      <created>1728948254172</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1728948254172</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -85,6 +94,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="init commit" />
+    <MESSAGE value="building form 1, two doors, a potential wall" />
+    <option name="LAST_COMMIT_MESSAGE" value="building form 1, two doors, a potential wall" />
   </component>
 </project>
