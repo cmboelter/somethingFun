@@ -23,13 +23,14 @@ public class FieldContent {
 
     }
     // this is used to update what the board looks like when the command is executed
-    private static void updateStuffOnTheBoard(String command) {
+    private static void updateStuffOnTheBoard(FieldContent[][] board, FieldContent character,String command) {
         // find where the player is on the board; what array location
-        getLocation();
+        int[] location = getLocation(board, character);
+        int row = location[0];
+        int column = location[1];
         // put the player into another field
-        if (.equals("y")) {
-
-
+        String direction = readCommandFromTheUser(command);
+        if (direction.equals("y")) {
 
             // replace the old place with e.g. empty floor
         }
@@ -52,7 +53,7 @@ public class FieldContent {
     private static int[] getLocation(FieldContent[][] board, FieldContent character){
         int result[] = {-1, -1};
         for(int i =0; i<board.length; i++){
-            for(int j=0; j <board.length; j++){
+            for(int j=0; j <board[i].length; j++){
                 if(board[i][j] == character){
                     result[0] = i;
                     result[1] = j;
@@ -60,6 +61,15 @@ public class FieldContent {
                 }
             }
         }return result;
+    }
+
+    private static void moveUp(FieldContent[][] board){
+        for(int i=0; i< board.length; i++){
+            for(int j=0; j<board.length; j++){
+
+            }
+        }
+
     }
 
 }
