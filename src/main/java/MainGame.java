@@ -16,6 +16,7 @@ public class MainGame {
         FieldContent borderWall = new FieldContent("━");
         FieldContent wall = new FieldContent("-");
         FieldContent door = new FieldContent("║");
+
         board[0][0] = topLeftC;
         board[0][1] = borderWall;
         board[0][2] = borderWall;

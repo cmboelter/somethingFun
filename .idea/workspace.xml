@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="reduced structure size, main character object, trying to get matrix setter to work">
-      <change afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="updates">
       <change afterPath="$PROJECT_DIR$/src/main/java/Movement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +92,21 @@
       <option name="project" value="LOCAL" />
       <updated>1729299593839</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="getLocation, updateStuffOnBoard, readCommandFromUser, and other random stuff">
+      <created>1730405997805</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730405997805</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updates">
+      <created>1730407682776</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730407682776</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +125,8 @@
     <MESSAGE value="building form 1, two doors, a potential wall" />
     <MESSAGE value="modifications to structure" />
     <MESSAGE value="reduced structure size, main character object, trying to get matrix setter to work" />
-    <option name="LAST_COMMIT_MESSAGE" value="reduced structure size, main character object, trying to get matrix setter to work" />
+    <MESSAGE value="getLocation, updateStuffOnBoard, readCommandFromUser, and other random stuff" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
 </project>

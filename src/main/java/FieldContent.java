@@ -65,8 +65,16 @@ public class FieldContent {
 
     private static void moveUp(FieldContent[][] board){
         for(int i=0; i< board.length; i++){
-            for(int j=0; j<board.length; j++){
-
+            for(int j=0; j<board[i].length; j++){
+                if((board[i][j]).equals("━")){
+                    //maybe I need to check what is to the right and left to determine what goes in it's place
+                    board[i][j] =
+                    board[i+1][j] = board[i][j];
+                }
+                if((board[i][j]).equals("║")){
+                    board[i][j] = ;
+                    board[i+1][j]= board[i][j];
+                }
             }
         }
 
