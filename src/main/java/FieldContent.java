@@ -30,8 +30,9 @@ public class FieldContent {
         int column = location[1];
         // put the player into another field
         String direction = readCommandFromTheUser(command);
-        if (direction.equals("y")) {
-
+        //h is right; g is left
+        if (direction.equals("h")) {
+            moveRight();
             // replace the old place with e.g. empty floor
         }
     }
@@ -63,17 +64,16 @@ public class FieldContent {
         }return result;
     }
 
-    private static void moveUp(FieldContent[][] board){
-        for(int i=0; i< board.length; i++){
-            for(int j=0; j<board[i].length; j++){
-                if((board[i][j]).equals("━")){
+    private static void moveRight(FieldContent[][] current){
+        for(int i=0; i< current.length; i++){
+            for(int j=0; j<current[i].length; j++){
+                if((current[i+1][j]).equals("━")){
                     //maybe I need to check what is to the right and left to determine what goes in it's place
-                    board[i][j] =
-                    board[i+1][j] = board[i][j];
+                    current[i+1][j] = current[i][j];
                 }
-                if((board[i][j]).equals("║")){
-                    board[i][j] = ;
-                    board[i+1][j]= board[i][j];
+                if((current[i][j]).equals("║")){
+                    current[i][j] = ;
+                    current[i+1][j]= current[i][j];
                 }
             }
         }
