@@ -22,8 +22,13 @@ public class MainGame {
         board[0][2] = borderWall;
         board[0][3] = borderWall;
         board[0][4] = borderWall;
-        System.out.println(board);
-        System.out.println(blompy1);
+
+        printout(board);
+
+
+
+
+
 
 //        System.out.println("       ┏━━━━━━━━━━━━━━━━━━━┓");
 //        System.out.println("       ┃───────────────────┃");
@@ -44,6 +49,24 @@ public class MainGame {
 
 
         }
+    private static void printout(FieldContent[][] board) {
+        for (int i = 0; i < board.length; i++) {
+            // the first index in the matrix indicates the row
+            FieldContent[] row = board[i];
+            for (int j = 0; j < row.length; j++) {
+                // for every 'thing' in the row we create an output
+                FieldContent field = row[i];
+                if(field == null){
+                    System.out.print(".");
+                } else {
+                    System.out.print(field.getVisualRepresentation());
+                }
+
+            }
+            // after each row we want a new line
+            System.out.println();
+        }
+    }
 
 
     }
@@ -54,6 +77,7 @@ public class MainGame {
 
 
 //    };
+
 
 
 
