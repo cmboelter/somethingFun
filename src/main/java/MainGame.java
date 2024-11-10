@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainGame {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
 
         FieldContent[][] board = new FieldContent[2][2];
         FieldContent blompy1 = new FieldContent("B");
@@ -22,8 +22,17 @@ public class MainGame {
         board[1][0] = borderWall;
         board[1][1] = borderWall;
 //        board[0][4] = borderWall;
-
+        while(true){
         printout(board);
+        String command = FieldContent.readCommandFromTheUser();
+        if (command.equals("g")) {
+            board[1][1] = door;
+        } else if (command.equals("h")) {
+            board[1][1] = wall;
+        }
+
+    }
+
 
 
 
@@ -66,6 +75,7 @@ public class MainGame {
             // after each row we want a new line
             System.out.println();
         }
+        System.out.println("----------------------------------");
     }
 
 

@@ -14,28 +14,31 @@ public class FieldContent {
     }
 
 
-    private static String readCommandFromTheUser(String input) {
+    public static String readCommandFromTheUser() throws IllegalAccessException {
         // do the stuff with the scanner here and check if the character is a valid command (like L for left or whatever you wish)
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().toLowerCase();
+        if(!(entry.equals("g") || entry.equals("h"))){
+            throw new IllegalArgumentException("Invalid entry");
+        }
         // then return the char so that it can be used by the rest of the program
         return entry;
 
     }
     // this is used to update what the board looks like when the command is executed
-    private static void updateStuffOnTheBoard(FieldContent[][] board, FieldContent character,String command) {
+    private static void updateStuffOnTheBoard(FieldContent[][] board, FieldContent character,String command) throws IllegalAccessException {
         // find where the player is on the board; what array location
         int[] location = getLocation(board, character);
         int row = location[0];
         int column = location[1];
         // put the player into another field
-        String direction = readCommandFromTheUser(command);
-        //h is right; g is left
-        if (direction.equals("h")) {
-            moveRight();
-            // replace the old place with e.g. empty floor
+//        String direction = readCommandFromTheUser(command);
+
+//        if (direction.equals("h")) {
+////            moveRight();
+//            // replace the old place with e.g. empty floor
         }
-    }
+//    }
     // we run through the matrix and produce one character for every field content
     private static void printout(FieldContent[][] board) {
         for (int i = 0; i < board.length; i++) {
@@ -64,20 +67,17 @@ public class FieldContent {
         }return result;
     }
 
-    private static void moveRight(FieldContent[][] current){
-        for(int i=0; i< current.length; i++){
-            for(int j=0; j<current[i].length; j++){
-                if((current[i+1][j]).equals("━")){
-                    //maybe I need to check what is to the right and left to determine what goes in it's place
-                    current[i+1][j] = current[i][j];
-                }
-                if((current[i][j]).equals("║")){
-                    current[i][j] = ;
-                    current[i+1][j]= current[i][j];
-                }
-            }
-        }
+    private static void moveRight(FieldContent thing1, FieldContent thing2){
+        FieldContent[][] location = new FieldContent[2][2];
+        location[0][0] = thing1;
+        location[0][1] = thing2;
 
     }
+
+    private static void swapContent(FieldContent thing){
+        //if in one position, change
+
+    }
+
 
 }

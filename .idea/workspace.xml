@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="updates">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Movement.java" afterDir="false" />
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="fixed printout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
@@ -113,7 +112,35 @@
       <option name="project" value="LOCAL" />
       <updated>1730479988566</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="updates">
+      <created>1730749977428</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730749977429</updated>
+    </task>
+    <task id="LOCAL-00009" summary="updates w/Tom">
+      <created>1731263043488</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731263043489</updated>
+    </task>
+    <task id="LOCAL-00010" summary="updates w/Tom2">
+      <created>1731263722971</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731263722971</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed printout">
+      <created>1731263748546</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731263748547</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -134,6 +161,9 @@
     <MESSAGE value="reduced structure size, main character object, trying to get matrix setter to work" />
     <MESSAGE value="getLocation, updateStuffOnBoard, readCommandFromUser, and other random stuff" />
     <MESSAGE value="updates" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates" />
+    <MESSAGE value="updates w/Tom" />
+    <MESSAGE value="updates w/Tom2" />
+    <MESSAGE value="fixed printout" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed printout" />
   </component>
 </project>
