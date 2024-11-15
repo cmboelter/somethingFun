@@ -56,7 +56,25 @@ public class MainGame {
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = borderWall;
             }
-
+            //going down
+        } else if(command.equals("b")){
+            if(blompyRow == 0){
+                blompyRow = blompyRow + 1;
+                board[blompyRow - 1][blompyColumn] = topLeftCorner;
+            } else if(blompyRow == 9){
+                System.out.println("You cannot move any further.");
+            } else {
+                blompyRow = blompyRow +1;
+                board[blompyRow -1][blompyColumn] = verticalBorderWall;
+            }
+            //going up
+        } else if(command.equals("y")){
+            if(blompyRow == 0){
+                System.out.println("You cannot move any further.");
+            } else {
+                blompyRow = blompyRow - 1;
+                board[blompyRow + 1][blompyColumn] = verticalBorderWall;
+            }
         }
 
     }
