@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class MainGame {
     public static void main(String[] args) throws IllegalAccessException {
 
-        FieldContent[][] board = new FieldContent[10][10];
+        FieldContent[][] board = new FieldContent[10][15];
         FieldContent blompy1 = new FieldContent("B");
         FieldContent topLeftCorner = new FieldContent("┏");
         FieldContent topRightCorner = new FieldContent("┓");
@@ -27,6 +27,16 @@ public class MainGame {
         board[0][2] = borderWall;
         board[0][3] = borderWall;
         board[0][4] = borderWall;
+        board[0][5] = borderWall;
+        board[0][6] = borderWall;
+        board[0][7] = borderWall;
+        board[0][8] = borderWall;
+        board[0][9] = borderWall;
+        board[0][10] = borderWall;
+        board[0][11] = borderWall;
+        board[0][12] = borderWall;
+        board[0][13] = borderWall;
+        board[0][14] = topRightCorner;
         board[1][0] = verticalBorderWall;
         board[2][0] = verticalBorderWall;
         board[3][0] = verticalBorderWall;
@@ -36,6 +46,29 @@ public class MainGame {
         board[7][0] = verticalBorderWall;
         board[8][0] = verticalBorderWall;
         board[9][0] = botLeftCorner;
+
+        board[1][14] = verticalBorderWall;
+        board[2][14] = verticalBorderWall;
+        board[3][14] = verticalBorderWall;
+        board[4][14] = verticalBorderWall;
+        board[5][14] = verticalBorderWall;
+        board[6][14] = verticalBorderWall;
+        board[7][14] = verticalBorderWall;
+        board[8][14] = verticalBorderWall;
+        board[9][1] = borderWall;
+        board[9][2] = borderWall;
+        board[9][3] = borderWall;
+        board[9][4] = borderWall;
+        board[9][5] = borderWall;
+        board[9][6] = borderWall;
+        board[9][7] = borderWall;
+        board[9][8] = borderWall;
+        board[9][9] = borderWall;
+        board[9][10] = borderWall;
+        board[9][11] = borderWall;
+        board[9][12] = borderWall;
+        board[9][13] = borderWall;
+        board[9][14] = botRightCorner;
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
 
@@ -113,14 +146,8 @@ public class MainGame {
                 FieldContent field = row[columnNumber];
 
                 if(field == null){
-                    if(columnNumber >=3){
-                        FieldContent fieldPrior = row[columnNumber -1];
-                        if(fieldPrior != null && fieldPrior.equals("━")){
-                            System.out.println("━");
-                        }
-                    } else {
+
                         System.out.print(".");
-                    }
 
                 } else {
                     System.out.print(field.getVisualRepresentation());
