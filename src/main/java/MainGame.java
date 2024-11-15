@@ -74,31 +74,61 @@ public class MainGame {
 
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
+        //going left
         if (command.equals("g")) {
-            if(blompyColumn == 0){
+            if(blompyRow == 0 && blompyColumn == 0){
                 System.out.println("You cannot move any further.");
-            } else {
+            } else if(blompyRow == 0 && blompyColumn == 14){
+                blompyColumn = blompyColumn -1;
+                board[blompyRow][blompyColumn +1] = topRightCorner;
+            } else if(blompyRow == 9 && blompyColumn == 14){
+                blompyColumn = blompyColumn -1;
+                board[blompyRow][blompyColumn +1] = botRightCorner;
+            } else if(blompyColumn == 14) {
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = borderWall;
+            } else if(blompyRow == 9){
+                blompyColumn = blompyColumn - 1;
+                board[blompyRow][blompyColumn + 1] = borderWall;
+            } else {
+                blompyColumn = blompyColumn - 1;
+                board[blompyRow][blompyColumn + 1] = null;
             }
+            //going right
         } else if (command.equals("h")) {
-            if(blompyColumn == 0){
+            if(blompyRow == 0 && blompyColumn == 14) {
+                System.out.println("You cannot move any further.");
+            } else if(blompyRow == 9 && blompyColumn == 14) {
+                System.out.println("You cannot move any further.");
+            } else if((blompyRow == 0) && (blompyColumn == 0)){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = topLeftCorner;
-            } else {
+            } else if(blompyRow == 0){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = borderWall;
+            } else if((blompyRow == 9) && (blompyColumn == 0)) {
+                blompyColumn = blompyColumn + 1;
+                board[blompyRow][blompyColumn - 1] = botRightCorner;
+            } else {
+                blompyColumn = blompyColumn +1;
+                board[blompyRow][blompyColumn -1] = null;
             }
             //going down
         } else if(command.equals("b")){
-            if(blompyRow == 0){
+            if(blompyRow == 9){
+                System.out.println("You cannot move any further.");
+            } else if(blompyRow == 0 && blompyColumn == 1){
                 blompyRow = blompyRow + 1;
                 board[blompyRow - 1][blompyColumn] = topLeftCorner;
-            } else if(blompyRow == 9){
-                System.out.println("You cannot move any further.");
-            } else {
+            } else if(blompyRow == 0 && blompyColumn == 14) {
+                blompyRow = blompyRow +1;
+                board[blompyRow -1][blompyColumn] = topRightCorner;
+            } else if (blompyColumn == 14){
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = verticalBorderWall;
+            } else {
+                blompyRow = blompyRow +1;
+                board[blompyRow -1][blompyColumn] = null;
             }
             //going up
         } else if(command.equals("y")){
