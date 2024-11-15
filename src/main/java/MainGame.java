@@ -42,7 +42,12 @@ public class MainGame {
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
         if (command.equals("g")) {
-            blompyColumn = blompyColumn - 1;
+            if(blompyColumn == 0){
+                System.out.println("You cannot move any further.");
+            } else {
+                blompyColumn = blompyColumn - 1;
+                board[blompyRow][blompyColumn + 1] = borderWall;
+            }
         } else if (command.equals("h")) {
             if(blompyColumn == 0){
                 blompyColumn = blompyColumn + 1;
