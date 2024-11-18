@@ -26,18 +26,7 @@ public class FieldContent {
 
     }
     // this is used to update what the board looks like when the command is executed
-    private static void updateStuffOnTheBoard(FieldContent[][] board, FieldContent character,String command) throws IllegalAccessException {
-        // find where the player is on the board; what array location
-        int[] location = getLocation(board, character);
-        int row = location[0];
-        int column = location[1];
-        // put the player into another field
-//        String direction = readCommandFromTheUser(command);
 
-//        if (direction.equals("h")) {
-////            moveRight();
-//            // replace the old place with e.g. empty floor
-        }
 //    }
     // we run through the matrix and produce one character for every field content
     private static void printout(FieldContent[][] board) {

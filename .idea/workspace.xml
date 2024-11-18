@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="moving blompy up and down borderline; more borders added; bigger playing field">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="more fixing movement commands to update properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1731707445848</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="more fixing movement commands to update properly">
+      <created>1731714028070</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731714028072</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +218,7 @@
     <MESSAGE value="moving blompy to the left and not beyond" />
     <MESSAGE value="moving blompy up and down borderline" />
     <MESSAGE value="moving blompy up and down borderline; more borders added; bigger playing field" />
-    <option name="LAST_COMMIT_MESSAGE" value="moving blompy up and down borderline; more borders added; bigger playing field" />
+    <MESSAGE value="more fixing movement commands to update properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="more fixing movement commands to update properly" />
   </component>
 </project>
