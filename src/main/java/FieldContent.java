@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class FieldContent {
 
     private final String thing;
+    public int wisdom;
 
     FieldContent(String whatIsIt) {
         this.thing = whatIsIt;
@@ -67,6 +68,8 @@ public class FieldContent {
         //if in one position, change
 
     }
-
+    public static boolean hasWisdom(int value) {
+        return (value>0);
+    }
 
 }

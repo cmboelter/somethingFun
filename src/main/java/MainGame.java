@@ -1,11 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.lang.reflect.Field;
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class MainGame {
     public static void main(String[] args) throws IllegalAccessException {
 
@@ -81,6 +73,8 @@ public class MainGame {
         if (command.equals("g")) {
             if(blompyRow == 0 && blompyColumn == 0){
                 System.out.println("You cannot move any further.");
+            } else if(blompyRow == 9 && blompyColumn == 0){
+                blompyColumn = blompyColumn;
             } else if(blompyRow == 0 && blompyColumn == 14){
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = topRightCorner;
@@ -99,6 +93,9 @@ public class MainGame {
             }
             //going right
         } else if (command.equals("h")) {
+            if(FieldContent.hasWisdom(wisdom)){
+                blompy1 = blompy2;
+            }
             if(blompyRow == 0 && blompyColumn == 14) {
                 System.out.println("You cannot move any further.");
             } else if(blompyRow == 9 && blompyColumn == 14) {
@@ -113,7 +110,7 @@ public class MainGame {
             } else if(blompyColumn == 0){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = verticalBorderWall;
-            } else if(blompyRow == 9){
+            } else if(blompyRow == 0 || blompyRow == 9){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = borderWall;
             } else {
@@ -141,18 +138,15 @@ public class MainGame {
         } else if(command.equals("y")){
             if(blompyRow == 0){
                 System.out.println("You cannot move any further.");
-            } else if(blompyColumn == 0) {
-                blompyRow = blompyRow - 1;
-                board[blompyRow + 1][blompyColumn] = verticalBorderWall;
-            } else if(blompyColumn == 0 && blompyRow == 9){
+            }  else if(blompyColumn == 0 && blompyRow == 9){
                 blompyRow = blompyRow - 1;
                 board[blompyRow +1][blompyColumn] = botLeftCorner;
             } else if(blompyColumn == 14 && blompyRow == 9){
                 blompyRow = blompyRow - 1;
                 board[blompyRow +1][blompyColumn] = botRightCorner;
-            } else if(blompyColumn == 14 && blompyRow == 0){
+            }  else if(blompyColumn == 0 || blompyColumn == 14) {
                 blompyRow = blompyRow - 1;
-                board[blompyRow +1][blompyColumn] = topRightCorner;
+                board[blompyRow + 1][blompyColumn] = verticalBorderWall;
             } else {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = null;
@@ -161,22 +155,14 @@ public class MainGame {
 
 
 
+
+
+
+
     }
 
 
 
-
-
-
-
-//        System.out.println("       ┏━━━━━━━━━━━━━━━━━━━┓");
-//        System.out.println("       ┃───────────────────┃");
-//        System.out.println("━━━━━━━┛ ║b────────────────┃");
-//        System.out.println("         ║─────────────────┃");
-//        System.out.println("━━━━━━━┓ ║─────────────────┃");
-//        System.out.println("       ┃───────────────────┃");
-//        System.out.println("       ┃───────────────────┃");
-//        System.out.println("       ┗━━━━━━━━━━━━━━━━━━━┛");
 
 
 
@@ -213,14 +199,10 @@ public class MainGame {
 
 
 
-    }
+}
 
 
-//        System.out.println(blompy1.getSymbol());
-//        System.out.println(Arrays.deepToString(blompy1.getLocation()));
 
-
-//    };
 
 
 
