@@ -1,9 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class FieldContent {
+public class FieldContent extends MainGame {
 
     private final String thing;
-    public int wisdom;
+
+//    public static List<String> validCommands = new ArrayList<>();
+//    validCommands.add("y");
+//    validCommands.add("b");
+//    validCommands.add("g");
+//    validCommands.add("h");
+//    validCommands.add("q");
 
     FieldContent(String whatIsIt) {
         this.thing = whatIsIt;
@@ -14,18 +22,19 @@ public class FieldContent {
         return thing;
     }
 
-
     public static String readCommandFromTheUser() throws IllegalAccessException {
         // do the stuff with the scanner here and check if the character is a valid command (like L for left or whatever you wish)
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().toLowerCase();
-        if(!(entry.equals("g") || entry.equals("h") || entry.equals("y") || entry.equals("b"))){
+        if(!(entry.equals("g") || entry.equals("h") || entry.equals("y") || entry.equals("b")|| entry.equals("q"))){
             throw new IllegalArgumentException("Invalid entry");
         }
         // then return the char so that it can be used by the rest of the program
         return entry;
 
     }
+
+
     // this is used to update what the board looks like when the command is executed
 
 //    }
@@ -69,7 +78,14 @@ public class FieldContent {
 
     }
     public static boolean hasWisdom(int value) {
-        return (value>0);
+        return (value>2);
     }
+
+    public static boolean isBigBlompy(int wisdom, int compassion){
+        return (wisdom ==5 && compassion == 2);
+    }
+
+
+
 
 }

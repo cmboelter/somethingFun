@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="added wisdom and a location to increase wisdom;">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="refactor of character trait attainments; map revision; added new user command to see map values">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1731958530239</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Blompy gets bigger going right due to wisdom">
+      <created>1731975465754</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731975465754</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -227,6 +234,8 @@
     <MESSAGE value="moving blompy up and down borderline; more borders added; bigger playing field" />
     <MESSAGE value="more fixing movement commands to update properly" />
     <MESSAGE value="added wisdom and a location to increase wisdom;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added wisdom and a location to increase wisdom;" />
+    <MESSAGE value="Blompy gets bigger going right due to wisdom" />
+    <MESSAGE value="refactor of character trait attainments; map revision; added new user command to see map values" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor of character trait attainments; map revision; added new user command to see map values" />
   </component>
 </project>
