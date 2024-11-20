@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="refactor of character trait attainments; map revision; added new user command to see map values">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -203,7 +202,14 @@
       <option name="project" value="LOCAL" />
       <updated>1731975465754</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="refactor of character trait attainments; map revision; added new user command to see map values">
+      <created>1732128545607</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1732128545607</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

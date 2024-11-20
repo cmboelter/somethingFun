@@ -16,7 +16,7 @@ public class MainGame {
         FieldContent door = new FieldContent("║");
         int blompyRow = 0;
         int blompyColumn = 0;
-        int wisdom = 1;
+        int wisdom = 0;
         int compassion = 0;
         int courage = 0;
         int heartbreak = 0;
@@ -77,9 +77,6 @@ public class MainGame {
 
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
-
-
-
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
             if(FieldContent.hasWisdom(wisdom)){
@@ -109,7 +106,7 @@ public class MainGame {
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = borderWall;
             } else if (blompyRow == 5 && blompyColumn == 7) {
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
                 blompyCharacterTraits.put("Compassion", compassion +2);
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = null;
@@ -126,7 +123,7 @@ public class MainGame {
                 blompyColumn = blompyColumn +1;
                 board[blompyRow][blompyColumn -1] = borderWall;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
             } else if((blompyRow == 0) && (blompyColumn == 0)){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = topLeftCorner;
@@ -143,7 +140,7 @@ public class MainGame {
                 blompyColumn = blompyColumn +1;
                 board[blompyRow][blompyColumn -1] = null;
                 System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
                 blompyCharacterTraits.put("Courage", courage +2);
             } else {
                 blompyColumn = blompyColumn +1;
@@ -155,7 +152,7 @@ public class MainGame {
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = null;
                 System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
                 blompyCharacterTraits.put("Courage", courage +2);
             } else if(blompyRow == 0 && blompyColumn == 0){
                 blompyRow = blompyRow + 1;
@@ -170,7 +167,7 @@ public class MainGame {
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
             } else {
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = null;
@@ -186,7 +183,7 @@ public class MainGame {
                 blompyRow = blompyRow - 1;
                 board[blompyRow +1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
             }  else if(blompyColumn == 0 || blompyColumn == 14) {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = verticalBorderWall;
@@ -194,7 +191,7 @@ public class MainGame {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = null;
                 System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
                 blompyCharacterTraits.put("Courage", courage +2);
 
             } else {
