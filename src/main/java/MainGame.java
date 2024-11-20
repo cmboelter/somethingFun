@@ -77,6 +77,7 @@ public class MainGame {
 
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
+            wisdom = blompyCharacterTraits.get("Wisdom");
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
             if(FieldContent.hasWisdom(wisdom)){
@@ -95,7 +96,7 @@ public class MainGame {
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", blompyCharacterTraits.get("wisdom") +1);
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
             } else if(blompyRow == 0){
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = borderWall;
