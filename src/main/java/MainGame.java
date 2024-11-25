@@ -23,12 +23,26 @@ public class MainGame {
         int compassion = 0;
         int courage = 0;
         int heartbreak = 0;
+        //eventually, want to limit number of wise owls
+        int wiseOwlCount = 0;
+        int golden = 0;
+        int syrup = 0;
+        int gBoba = 0;
+        int milk = 0;
 
         Map<String,Integer> blompyCharacterTraits = new HashMap<>();
         blompyCharacterTraits.put("Wisdom", wisdom);
         blompyCharacterTraits.put("Compassion", compassion);
         blompyCharacterTraits.put("Courage", courage);
         blompyCharacterTraits.put("Heartbreak", heartbreak);
+
+        Map<String, Integer> blompyLevel1Quest = new HashMap<>();
+        blompyLevel1Quest.put("Golden Tea Root", golden);
+        blompyLevel1Quest.put("Golden Glass Syrup", syrup);
+        blompyLevel1Quest.put("Golden Boba", gBoba);
+        blompyLevel1Quest.put("Milk", milk);
+
+
 
         //to randomly assign traits and tools
         Random rand1 = new Random();
@@ -88,16 +102,15 @@ public class MainGame {
         board[9][14] = botRightCorner;
 
 
-
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
             wisdom = blompyCharacterTraits.get("Wisdom");
-
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
             if(FieldContent.hasWisdom(wisdom)){
                 blompy1 = blompy2;
             }
+
         //going left
         if (command.equals("g")) {
             if(blompyRow == 0 && blompyColumn == 0 || blompyRow == 9 && blompyColumn == 0) {
@@ -239,12 +252,13 @@ public class MainGame {
         }
 
 
+
             Map<String, Integer> tools = new HashMap<>();
             tools.put("Keys of Light",0);
 
 
 
-
+            blompyQuest1Tracker(blompyLevel1Quest,board, blompy1,blompy2);
 
     }
 
@@ -261,6 +275,38 @@ public class MainGame {
 
 
         }
+
+    private static void blompyQuest1Tracker(Map<String, Integer> blompyLevel1Quest, FieldContent[][] board, FieldContent blompy1, FieldContent blompy2) throws IllegalAccessException {
+        System.out.println("Greetings dear reader. This scroll contains the ingredients of a special" +
+                "golden drink said to give it's imbiber a special power. All it will require of you is to find" +
+                " the necessary ingredients to create this drink. Would you like to set off on this quest? Please enter " +
+                "Yes or No.");
+        if(FieldContent.readCommandFromTheUser().equals("yes")){
+            System.out.println(blompyLevel1Quest);
+            System.out.println("You will need to gather the following: 3 Golden Tea roots, 2 Golden Glass syrup sticks, 1 silver tin of Golden Boba, " +
+                    "and 1 iridescent bottle of Golden Wispy milk.");
+            //place location of items
+            if(board[3][8] == blompy1 || board[3][8] == blompy2) {
+                System.out.println("You have found 2 Golden Tea roots.");
+                blompyLevel1Quest.put("Golden Tea Root", blompyLevel1Quest.get("Golden Tea Root") + 2);
+            } else if(board[6][2]== blompy1 || board[6][2] == blompy2){
+                System.out.println("You have found 1 Golden Tea root.");
+                blompyLevel1Quest.put("Golden Tea Root", blompyLevel1Quest.get("Golden Tea Root" + 1));
+            } else if(board[9][0]== blompy1 || board[9][0] == blompy2) {
+                System.out.println("You have found 2 Golden Glass syrup sticks.");
+                blompyLevel1Quest.put("Golden Glass Syrup", blompyLevel1Quest.get("Golden Glass Syrup" + 2));
+            } else if(board[1][4]== blompy1 || board[1][4] == blompy2) {
+                System.out.println("You have found Golden Boba.");
+                blompyLevel1Quest.put("Golden Boba", blompyLevel1Quest.get("Golden Boba" + 1));
+            } else if (board[8][4]== blompy1 || board[8][4] == blompy2) {
+                System.out.println("You have found Golden Boba.");
+                blompyLevel1Quest.put("Milk", blompyLevel1Quest.get("Milk" + 1));
+            }
+        } else {
+            System.out.println("You will not have this opportunity again dear friend. Carry on!");
+        }
+    }
+
     private static void printout(FieldContent[][] board) {
         for (int rowNumber = 0; rowNumber < board.length; rowNumber++) {
             // the first index in the matrix indicates the row
