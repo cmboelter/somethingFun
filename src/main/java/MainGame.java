@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.*;
 
 public class MainGame {
@@ -14,17 +16,28 @@ public class MainGame {
         FieldContent verticalBorderWall = new FieldContent("┃");
         FieldContent wall = new FieldContent("-");
         FieldContent door = new FieldContent("║");
+
         int blompyRow = 0;
         int blompyColumn = 0;
         int wisdom = 0;
         int compassion = 0;
         int courage = 0;
         int heartbreak = 0;
+
         Map<String,Integer> blompyCharacterTraits = new HashMap<>();
         blompyCharacterTraits.put("Wisdom", wisdom);
         blompyCharacterTraits.put("Compassion", compassion);
         blompyCharacterTraits.put("Courage", courage);
         blompyCharacterTraits.put("Heartbreak", heartbreak);
+
+        //to randomly assign traits and tools
+        Random rand1 = new Random();
+        int maxRow = 8,minRow =1;
+        int randNumRow = rand1.nextInt(maxRow - minRow + 1);
+
+        Random rand2 = new Random();
+        int maxCol = 13,minCol =1;
+        int randNumColumn = rand2.nextInt(maxCol - minCol + 1);
 
         board[0][0] = topLeftCorner;
         board[0][1] = borderWall;
@@ -75,9 +88,11 @@ public class MainGame {
         board[9][14] = botRightCorner;
 
 
+
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
             wisdom = blompyCharacterTraits.get("Wisdom");
+
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
             if(FieldContent.hasWisdom(wisdom)){
@@ -97,6 +112,11 @@ public class MainGame {
                 board[blompyRow][blompyColumn +1] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
+            } else if(blompyRow == 8 && blompyColumn == randNumColumn){
+                blompyColumn = blompyColumn -1;
+                board[blompyRow][blompyColumn +1] = null;
+                System.out.println("An old wise owl passed along some wisdom. +1");
+                blompyCharacterTraits.put("Wisdom", wisdom +1);
             } else if(blompyRow == 0){
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = borderWall;
@@ -112,14 +132,20 @@ public class MainGame {
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = null;
                 System.out.println("You have gained wisdom and compassion");
-            } else {
+            }
+            else {
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = null;
             }
             //going right
         } else if (command.equals("h")) {
             if(blompyRow == 0 && blompyColumn == 1) {
-                System.out.println("Something bad happened!");
+                blompyColumn = blompyColumn +1;
+                board[blompyRow][blompyColumn -1] = borderWall;
+                System.out.println("Something bad happened! If you're wise, you lost 1!");
+                if(blompyCharacterTraits.get("Wisdom") > 0){
+                    blompyCharacterTraits.put("Wisdom", wisdom -1);
+                }
             } else if(blompyRow == 9 && blompyColumn == 13) {
                 blompyColumn = blompyColumn +1;
                 board[blompyRow][blompyColumn -1] = borderWall;
@@ -149,13 +175,7 @@ public class MainGame {
             }
             //going down
         } else if(command.equals("b")){
-            if(blompyRow == 5 && blompyColumn == 7){
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = null;
-                System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-                blompyCharacterTraits.put("Courage", courage +2);
-            } else if(blompyRow == 0 && blompyColumn == 0){
+            if (blompyRow == 0 && blompyColumn == 0){
                 blompyRow = blompyRow + 1;
                 board[blompyRow - 1][blompyColumn] = topLeftCorner;
             } else if(blompyRow == 0 && blompyColumn == 14) {
@@ -164,11 +184,25 @@ public class MainGame {
             } else if (blompyColumn == 0 || blompyColumn == 14){
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = verticalBorderWall;
+            } else if (blompyRow == 0){
+                blompyRow = blompyRow +1;
+                board[blompyRow -1][blompyColumn] = borderWall;
             } else if(blompyRow == 9 && blompyColumn == 14) {
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
+            } else if(blompyRow == 5 && blompyColumn == 7) {
+                blompyRow = blompyRow + 1;
+                board[blompyRow - 1][blompyColumn] = null;
+                System.out.println("You have gained wisdom and compassion");
+                blompyCharacterTraits.put("Wisdom", wisdom + 1);
+                blompyCharacterTraits.put("Courage", courage + 2);
+            } else if(blompyRow == randNumRow && blompyColumn == 5) {
+                blompyColumn = blompyColumn - 1;
+                board[blompyRow][blompyColumn + 1] = null;
+                System.out.println("An old wise owl passed along some wisdom. +1");
+                blompyCharacterTraits.put("Wisdom", wisdom + 1);
             } else {
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = null;
@@ -203,16 +237,13 @@ public class MainGame {
         } else if(command.equals("q")){
             System.out.println(blompyCharacterTraits);
         }
-            //why couldn't I put this in the fieldcontent class?? put wouldn't work
 
 
             Map<String, Integer> tools = new HashMap<>();
             tools.put("Keys of Light",0);
 
 
-//            public int updateBlompyCharacterTraits(){
-//
-//            }
+
 
 
     }
