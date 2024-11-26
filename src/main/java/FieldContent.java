@@ -27,7 +27,19 @@ public class FieldContent extends MainGame {
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().toLowerCase();
         if(!(entry.equals("g") || entry.equals("h") || entry.equals("y") || entry.equals("b")|| entry.equals("q")
-        ||entry.equals("yes") || entry.equals("no"))){
+        )) {
+            throw new IllegalArgumentException("Invalid entry");
+        }
+        // then return the char so that it can be used by the rest of the program
+        return entry;
+
+    }
+
+    public static String validQuestResponse() throws IllegalAccessException {
+        // do the stuff with the scanner here and check if the character is a valid command (like L for left or whatever you wish)
+        Scanner scanner = new Scanner(System.in);
+        String entry = scanner.nextLine().toLowerCase();
+        if(!(entry.equals("yes") || entry.equals("no"))) {
             throw new IllegalArgumentException("Invalid entry");
         }
         // then return the char so that it can be used by the rest of the program

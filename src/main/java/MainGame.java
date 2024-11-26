@@ -42,16 +42,12 @@ public class MainGame {
         blompyLevel1Quest.put("Golden Boba", gBoba);
         blompyLevel1Quest.put("Milk", milk);
 
-
-
         //to randomly assign traits and tools
         Random rand1 = new Random();
         int maxRow = 8,minRow =1;
         int randNumRow = rand1.nextInt(maxRow - minRow + 1);
-
-        Random rand2 = new Random();
         int maxCol = 13,minCol =1;
-        int randNumColumn = rand2.nextInt(maxCol - minCol + 1);
+        int randNumColumn = rand1.nextInt(maxCol - minCol + 1);
 
         board[0][0] = topLeftCorner;
         board[0][1] = borderWall;
@@ -110,13 +106,14 @@ public class MainGame {
             if(FieldContent.hasWisdom(wisdom)){
                 blompy1 = blompy2;
             }
+            if(board[9][0]==blompy1 || board[9][0]==blompy2){
+                blompyQuest1Tracker(blompyLevel1Quest,board, blompy1,blompy2);
+            }
 
         //going left
         if (command.equals("g")) {
             if(blompyRow == 0 && blompyColumn == 0 || blompyRow == 9 && blompyColumn == 0) {
                 System.out.println("You cannot move any further.");
-            }else if(blompyRow == 9 && blompyColumn == 0){
-                blompyColumn = blompyColumn -1;
             } else if(blompyRow == 0 && blompyColumn == 14){
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = topRightCorner;
@@ -125,6 +122,8 @@ public class MainGame {
                 board[blompyRow][blompyColumn +1] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
+            } else if(blompyRow == 13 && blompyColumn == 0){
+                blompyQuest1Tracker(blompyLevel1Quest,board, blompy1,blompy2);
             } else if(blompyRow == 8 && blompyColumn == randNumColumn){
                 blompyColumn = blompyColumn -1;
                 board[blompyRow][blompyColumn +1] = null;
@@ -176,6 +175,8 @@ public class MainGame {
             } else if(blompyRow == 0 || blompyRow == 9){
                 blompyColumn = blompyColumn + 1;
                 board[blompyRow][blompyColumn -1] = borderWall;
+            } else if(blompyRow == 13 && blompyColumn == 0) {
+                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
             } else if (blompyRow == 5 && blompyColumn == 7) {
                 blompyColumn = blompyColumn +1;
                 board[blompyRow][blompyColumn -1] = null;
@@ -197,6 +198,10 @@ public class MainGame {
             } else if (blompyColumn == 0 || blompyColumn == 14){
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = verticalBorderWall;
+            } else if(blompyRow == 13 && blompyColumn == 0) {
+                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
+                blompyRow = blompyRow + 1;
+                board[blompyRow - 1][blompyColumn] = verticalBorderWall;
             } else if (blompyRow == 0){
                 blompyRow = blompyRow +1;
                 board[blompyRow -1][blompyColumn] = borderWall;
@@ -235,6 +240,8 @@ public class MainGame {
             }  else if(blompyColumn == 0 || blompyColumn == 14) {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = verticalBorderWall;
+            } else if(blompyRow == 13 && blompyColumn == 0) {
+                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
             } else if (blompyRow == 5 && blompyColumn == 7) {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = null;
@@ -249,6 +256,8 @@ public class MainGame {
             //checking character traits
         } else if(command.equals("q")){
             System.out.println(blompyCharacterTraits);
+        } else if(command.equals("p")){
+            System.out.println(blompyLevel1Quest);
         }
 
 
@@ -258,7 +267,7 @@ public class MainGame {
 
 
 
-            blompyQuest1Tracker(blompyLevel1Quest,board, blompy1,blompy2);
+
 
     }
 
@@ -281,7 +290,7 @@ public class MainGame {
                 "golden drink said to give it's imbiber a special power. All it will require of you is to find" +
                 " the necessary ingredients to create this drink. Would you like to set off on this quest? Please enter " +
                 "Yes or No.");
-        if(FieldContent.readCommandFromTheUser().equals("yes")){
+        if(FieldContent.validQuestResponse().equals("yes")){
             System.out.println(blompyLevel1Quest);
             System.out.println("You will need to gather the following: 3 Golden Tea roots, 2 Golden Glass syrup sticks, 1 silver tin of Golden Boba, " +
                     "and 1 iridescent bottle of Golden Wispy milk.");
@@ -302,7 +311,7 @@ public class MainGame {
                 System.out.println("You have found Golden Boba.");
                 blompyLevel1Quest.put("Milk", blompyLevel1Quest.get("Milk" + 1));
             }
-        } else {
+        } else if(FieldContent.validQuestResponse().equals("no")){
             System.out.println("You will not have this opportunity again dear friend. Carry on!");
         }
     }
