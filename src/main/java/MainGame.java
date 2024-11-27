@@ -233,15 +233,13 @@ public class MainGame {
                 board[blompyRow +1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
-            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2 && quest1called == 0) {
-                blompyQuest1Prompt();
-                quest1called ++;
-                responseBlompyQuest1(blompyLevel1Quest);
-                blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
-
-//                //somehow they have to resume normal movement
-//            } else if(board[8][0]==blompy1 || board[8][0]==blompy2 && quest1Called == 1) {
-//                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2); && quest1Called == 0
+            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2) {
+                if(quest1called == 0) {
+                    quest1called++;
+                    blompyQuest1Prompt();
+                    responseBlompyQuest1(blompyLevel1Quest);
+                }
+                    blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
             } else if(blompyColumn == 0 || blompyColumn == 14) {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = verticalBorderWall;
@@ -311,8 +309,6 @@ public class MainGame {
         } return "no play";
     }
     private static void blompyQuest1Tracker(Map<String, Integer> blompyLevel1Quest, FieldContent[][] board, FieldContent blompy1, FieldContent blompy2)  {
-       String answer = responseBlompyQuest1(blompyLevel1Quest);
-            if(answer.equals("play")){
                 if(board[3][8] == blompy1 || board[3][8] == blompy2) {
                     int goldenTeaCount1 = 0;
                     if(goldenTeaCount1 == 0){
@@ -349,11 +345,6 @@ public class MainGame {
                     }
                 }
             }
-
-
-
-        }
-
 
     private static void printout(FieldContent[][] board) {
         for (int rowNumber = 0; rowNumber < board.length; rowNumber++) {
