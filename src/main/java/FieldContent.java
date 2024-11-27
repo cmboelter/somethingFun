@@ -27,6 +27,7 @@ public class FieldContent extends MainGame {
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().toLowerCase();
         if(!(entry.equals("g") || entry.equals("h") || entry.equals("y") || entry.equals("b")|| entry.equals("q") || entry.equals("p")
+                || entry.equals("yes") || entry.equals("no")
         )) {
             System.out.println("Invalid Entry");
         }
@@ -40,7 +41,7 @@ public class FieldContent extends MainGame {
         Scanner scanner = new Scanner(System.in);
         String entry = scanner.nextLine().toLowerCase();
         if(!(entry.equals("yes") || entry.equals("no"))) {
-            throw new IllegalArgumentException("Invalid entry");
+            System.out.println("Invalid entry");
         }
         // then return the char so that it can be used by the rest of the program
         return entry;

@@ -25,7 +25,7 @@ public class MainGame {
         int heartbreak = 0;
         //eventually, want to limit number of wise owls
         int wiseOwlCount = 0;
-        int quest1Called = 0;
+
         int golden = 0;
         int syrup = 0;
         int gBoba = 0;
@@ -102,18 +102,13 @@ public class MainGame {
         while(true){
             board[blompyRow][blompyColumn] = blompy1;
             wisdom = blompyCharacterTraits.get("Wisdom");
+            int quest1called = 0;
+
+
         printout(board);
         String command = FieldContent.readCommandFromTheUser();
             if(FieldContent.hasWisdom(wisdom)){
                 blompy1 = blompy2;
-            }
-            if((board[8][0]==blompy1 || board[8][0]==blompy2)){
-                if(quest1Called == 0){
-                    blompyQuest1Prompt(blompyLevel1Quest);
-                    quest1Called ++;
-                }
-
-                blompyQuest1Tracker(blompyLevel1Quest,board, blompy1,blompy2);
             }
 
         //going left
@@ -238,9 +233,18 @@ public class MainGame {
                 board[blompyRow +1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
-            }  else if(blompyColumn == 0 || blompyColumn == 14) {
+            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2) {
+                blompyQuest1Prompt();
+                responseBlompyQuest1(blompyLevel1Quest);
+                blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
+
+//                //somehow they have to resume normal movement
+//            } else if(board[8][0]==blompy1 || board[8][0]==blompy2 && quest1Called == 1) {
+//                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2); && quest1Called == 0
+            } else if(blompyColumn == 0 || blompyColumn == 14) {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = verticalBorderWall;
+
             } else if(blompyRow == 13 && blompyColumn == 0) {
                 blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
             } else if (blompyRow == 5 && blompyColumn == 7) {
@@ -249,7 +253,6 @@ public class MainGame {
                 System.out.println("You have gained wisdom and compassion");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
                 blompyCharacterTraits.put("Courage", courage +2);
-
             } else {
                 blompyRow = blompyRow - 1;
                 board[blompyRow + 1][blompyColumn] = null;
@@ -260,6 +263,8 @@ public class MainGame {
         } else if(command.equals("p")){
             System.out.println(blompyLevel1Quest);
         }
+
+
 
 
 
@@ -286,27 +291,27 @@ public class MainGame {
 
         }
 
-        private static String blompyQuest1Prompt(Map<String, Integer> blompyLevel1Quest) {
-            int count = 0;
+        private static void blompyQuest1Prompt() {
             System.out.println("Greetings dear reader. This scroll contains the ingredients of a special");
             System.out.println("golden drink said to give it's imbiber a special power. All it will require of you is to find");
             System.out.println("the necessary ingredients to create this drink. Would you like to set off on this quest? Please enter Yes or No.");
-            String response = FieldContent.validQuestResponse();
-            if(response.equals("no")){
-                System.out.println("You will not have this opportunity again dear friend. Carry on!");
-                return "no";
-            } else if(response.equals("yes")){
-                System.out.println("You will need to gather the following: 3 Golden Tea roots, 2 Golden Glass syrup sticks, 1 silver tin of Golden Boba, " +
-                        "and 1 iridescent bottle of Golden Wispy milk.");
-                System.out.println(blompyLevel1Quest);
-                System.out.println("Continue on your journey and find the needed ingredients");
-
-            } return "play";
 
         }
-        private static void blompyQuest1Tracker(Map<String, Integer> blompyLevel1Quest, FieldContent[][] board, FieldContent blompy1, FieldContent blompy2)  {
-            // if person said yes
-            if(blompyQuest1Prompt(blompyLevel1Quest).equals("play")){
+        private static String responseBlompyQuest1(Map<String, Integer> blompyLevel1Quest){
+        String response = FieldContent.validQuestResponse();
+        if(response.equals("yes")){
+            System.out.println("You will need to gather the following: 3 Golden Tea roots, 2 Golden Glass syrup sticks, 1 silver tin of Golden Boba, " +
+                    "and 1 iridescent bottle of Golden Wispy milk.");
+            System.out.println(blompyLevel1Quest);
+            System.out.println("Continue on your journey and find the needed ingredients.");
+            return "play";
+        } else if(response.equals("no")){
+            System.out.println("You will not have this opportunity again dear friend. Carry on!");
+        } return "no play";
+    }
+    private static void blompyQuest1Tracker(Map<String, Integer> blompyLevel1Quest, FieldContent[][] board, FieldContent blompy1, FieldContent blompy2)  {
+       String answer = responseBlompyQuest1(blompyLevel1Quest);
+            if(answer.equals("play")){
                 if(board[3][8] == blompy1 || board[3][8] == blompy2) {
                     int goldenTeaCount1 = 0;
                     if(goldenTeaCount1 == 0){
@@ -317,10 +322,10 @@ public class MainGame {
                 } else if(board[6][2]== blompy1 || board[6][2] == blompy2){
                     int goldenTeaCount2 = 0;
                     if(goldenTeaCount2 == 0){
-                    System.out.println("You have found 1 Golden Tea root.");
-                    blompyLevel1Quest.put("Golden Tea Root", blompyLevel1Quest.get("Golden Tea Root" + 1));
-                    goldenTeaCount2 ++;
-                }
+                        System.out.println("You have found 1 Golden Tea root.");
+                        blompyLevel1Quest.put("Golden Tea Root", blompyLevel1Quest.get("Golden Tea Root" + 1));
+                        goldenTeaCount2 ++;
+                    }
 
                 } else if(board[9][0]== blompy1 || board[9][0] == blompy2) {
                     int goldenGlassCount = 0;
@@ -343,6 +348,9 @@ public class MainGame {
                     }
                 }
             }
+
+
+
         }
 
 
