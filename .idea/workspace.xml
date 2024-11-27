@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="breaking quest into smaller pieces, remove exception,frustration and rage">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="quest: broken down methods more to stop recall of prompt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/FieldContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FieldContent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1732653569236</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="quest: broken down methods more to stop recall of prompt">
+      <created>1732738052747</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1732738052748</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -291,6 +296,7 @@
     <MESSAGE value="working on quest" />
     <MESSAGE value="working on quest revised method call trial" />
     <MESSAGE value="breaking quest into smaller pieces, remove exception,frustration and rage" />
-    <option name="LAST_COMMIT_MESSAGE" value="breaking quest into smaller pieces, remove exception,frustration and rage" />
+    <MESSAGE value="quest: broken down methods more to stop recall of prompt" />
+    <option name="LAST_COMMIT_MESSAGE" value="quest: broken down methods more to stop recall of prompt" />
   </component>
 </project>

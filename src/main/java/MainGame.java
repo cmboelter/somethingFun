@@ -233,8 +233,9 @@ public class MainGame {
                 board[blompyRow +1][blompyColumn] = botRightCorner;
                 System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
                 blompyCharacterTraits.put("Wisdom", wisdom +1);
-            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2) {
+            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2 && quest1called == 0) {
                 blompyQuest1Prompt();
+                quest1called ++;
                 responseBlompyQuest1(blompyLevel1Quest);
                 blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
 
