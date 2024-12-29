@@ -9,24 +9,7 @@ public class Movement {
 
 
 
-//get current location of character
-//    int currentLocation = movementArr.get(i).get(j);
-//
 
-//
-//        while(){
-//        case "y":
-//
-//        };
-//        reader.close();
-//
-//
-//    public Movement() throws IOException {
-//    }
-//
-//    public void getCharacterLocation(){
-//
-//        }
     }
 
 
