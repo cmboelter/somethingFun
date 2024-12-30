@@ -279,16 +279,17 @@ public class MainGame {
 
 
     }
-    public void wisdomAndCourage(int blompyRow, int blompyColumn, int wisdom, Map<String,Integer> blompyCharacterTraits, int randNumColumn, ){
+    public void wisdomAndCourage(int blompyRow, int blompyColumn, int wisdom, Map<String,Integer> blompyCharacterTraits, int randNumColumn,int compassion){
         if(blompyRow == 9 && blompyColumn == 14){
             System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
             blompyCharacterTraits.put("Wisdom", wisdom +1);
         } else if(blompyRow == 8 && blompyColumn == randNumColumn){
             System.out.println("An old wise owl passed along some wisdom. +1");
             blompyCharacterTraits.put("Wisdom", wisdom +1);
-        } else if(blompyRow == 8 && blompyColumn == randNumColumn){
-            System.out.println("An old wise owl passed along some wisdom. +1");
+        } else if(blompyRow == 5 && blompyColumn == 7) {
             blompyCharacterTraits.put("Wisdom", wisdom +1);
+            blompyCharacterTraits.put("Compassion", compassion +2);
+            System.out.println("You have gained wisdom and compassion");
     }
 
 
