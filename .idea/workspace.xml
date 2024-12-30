@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="quest: put back in attempt at counter">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="refactor work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Movement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -273,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1732744588820</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="refactor work">
+      <created>1735447567165</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1735447567167</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -288,7 +294,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="building form 1, two doors, a potential wall" />
     <MESSAGE value="modifications to structure" />
     <MESSAGE value="reduced structure size, main character object, trying to get matrix setter to work" />
     <MESSAGE value="getLocation, updateStuffOnBoard, readCommandFromUser, and other random stuff" />
@@ -313,6 +318,7 @@
     <MESSAGE value="breaking quest into smaller pieces, remove exception,frustration and rage" />
     <MESSAGE value="quest: broken down methods more to stop recall of prompt" />
     <MESSAGE value="quest: put back in attempt at counter" />
-    <option name="LAST_COMMIT_MESSAGE" value="quest: put back in attempt at counter" />
+    <MESSAGE value="refactor work" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor work" />
   </component>
 </project>
