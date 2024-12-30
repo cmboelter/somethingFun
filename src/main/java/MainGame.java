@@ -113,152 +113,153 @@ public class MainGame {
             }
 
         //going left
-        if (command.equals("g")) {
-            if(blompyRow == 0 && blompyColumn == 0 || blompyRow == 9 && blompyColumn == 0) {
-                System.out.println("You cannot move any further.");
-            } else if(blompyRow == 0 && blompyColumn == 14){
-                blompyColumn = blompyColumn -1;
-                board[blompyRow][blompyColumn +1] = topRightCorner;
-            } else if(blompyRow == 9 && blompyColumn == 14){
-                blompyColumn = blompyColumn -1;
-                board[blompyRow][blompyColumn +1] = botRightCorner;
-                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-            } else if(blompyRow == 8 && blompyColumn == randNumColumn){
-                blompyColumn = blompyColumn -1;
-                board[blompyRow][blompyColumn +1] = null;
-                System.out.println("An old wise owl passed along some wisdom. +1");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-            } else if(blompyRow == 0 || blompyRow == 9){
-                blompyColumn = blompyColumn -1;
-                board[blompyRow][blompyColumn +1] = borderWall;
-            } else if(blompyColumn ==0 || blompyColumn == 14) {
-                blompyColumn = blompyColumn - 1;
-                board[blompyRow][blompyColumn + 1] = verticalBorderWall;
-            } else if (blompyRow == 5 && blompyColumn == 7) {
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-                blompyCharacterTraits.put("Compassion", compassion +2);
-                blompyColumn = blompyColumn - 1;
-                board[blompyRow][blompyColumn + 1] = null;
-                System.out.println("You have gained wisdom and compassion");
-            }
-            else {
-                blompyColumn = blompyColumn - 1;
-                board[blompyRow][blompyColumn + 1] = null;
-            }
-            //going right
-        } else if (command.equals("h")) {
-            if(blompyRow == 0 && blompyColumn == 1) {
-                blompyColumn = blompyColumn +1;
-                board[blompyRow][blompyColumn -1] = borderWall;
-                System.out.println("Something bad happened! If you're wise, you lost 1!");
-                if(blompyCharacterTraits.get("Wisdom") > 0){
-                    blompyCharacterTraits.put("Wisdom", wisdom -1);
-                }
-            } else if(blompyRow == 9 && blompyColumn == 13) {
-                blompyColumn = blompyColumn +1;
-                board[blompyRow][blompyColumn -1] = borderWall;
-                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-            } else if((blompyRow == 0) && (blompyColumn == 0)){
-                blompyColumn = blompyColumn + 1;
-                board[blompyRow][blompyColumn -1] = topLeftCorner;
-            } else if((blompyRow == 9) && (blompyColumn == 0)) {
-                blompyColumn = blompyColumn + 1;
-                board[blompyRow][blompyColumn - 1] = botLeftCorner;
-            } else if(blompyColumn == 0){
-                blompyColumn = blompyColumn + 1;
-                board[blompyRow][blompyColumn -1] = verticalBorderWall;
-            } else if(blompyRow == 0 || blompyRow == 9){
-                blompyColumn = blompyColumn + 1;
-                board[blompyRow][blompyColumn -1] = borderWall;
-            } else if(blompyRow == 13 && blompyColumn == 0) {
-                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
-            } else if (blompyRow == 5 && blompyColumn == 7) {
-                blompyColumn = blompyColumn +1;
-                board[blompyRow][blompyColumn -1] = null;
-                System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-                blompyCharacterTraits.put("Courage", courage +2);
-            } else {
-                blompyColumn = blompyColumn +1;
-                board[blompyRow][blompyColumn -1] = null;
-            }
-            //going down
-        } else if(command.equals("b")){
-            if (blompyRow == 0 && blompyColumn == 0){
-                blompyRow = blompyRow + 1;
-                board[blompyRow - 1][blompyColumn] = topLeftCorner;
-            } else if(blompyRow == 0 && blompyColumn == 14) {
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = topRightCorner;
-            } else if (blompyColumn == 0 || blompyColumn == 14){
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = verticalBorderWall;
-            } else if(blompyRow == 13 && blompyColumn == 0) {
-                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
-                blompyColumn = blompyColumn - 1;
-                board[blompyRow][blompyColumn + 1] = verticalBorderWall;
-            } else if (blompyRow == 0){
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = borderWall;
-            } else if(blompyRow == 9 && blompyColumn == 14) {
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = botRightCorner;
-                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-            } else if(blompyRow == 5 && blompyColumn == 7) {
-                blompyRow = blompyRow + 1;
-                board[blompyRow - 1][blompyColumn] = null;
-                System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", wisdom + 1);
-                blompyCharacterTraits.put("Courage", courage + 2);
-            } else if(blompyRow == randNumRow && blompyColumn == 5) {
-                blompyColumn = blompyColumn - 1;
-                board[blompyRow][blompyColumn + 1] = null;
-                System.out.println("An old wise owl passed along some wisdom. +1");
-                blompyCharacterTraits.put("Wisdom", wisdom + 1);
-            } else {
-                blompyRow = blompyRow +1;
-                board[blompyRow -1][blompyColumn] = null;
-            }
-            //going up
-        } else if(command.equals("y")){
-            if(blompyRow == 0){
-                System.out.println("You cannot move any further.");
-            }  else if(blompyColumn == 0 && blompyRow == 9){
-                blompyRow = blompyRow - 1;
-                board[blompyRow +1][blompyColumn] = botLeftCorner;
-            } else if(blompyColumn == 14 && blompyRow == 9){
-                blompyRow = blompyRow - 1;
-                board[blompyRow +1][blompyColumn] = botRightCorner;
-                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2) {
-                if(quest1called == 0) {
-                    quest1called++;
-                    blompyQuest1Prompt();
-                    responseBlompyQuest1(blompyLevel1Quest);
-                }
-                    blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
-            } else if(blompyColumn == 0 || blompyColumn == 14) {
-                blompyRow = blompyRow - 1;
-                board[blompyRow + 1][blompyColumn] = verticalBorderWall;
-
-            } else if(blompyRow == 13 && blompyColumn == 0) {
-                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
-            } else if (blompyRow == 5 && blompyColumn == 7) {
-                blompyRow = blompyRow - 1;
-                board[blompyRow + 1][blompyColumn] = null;
-                System.out.println("You have gained wisdom and compassion");
-                blompyCharacterTraits.put("Wisdom", wisdom +1);
-                blompyCharacterTraits.put("Courage", courage +2);
-            } else {
-                blompyRow = blompyRow - 1;
-                board[blompyRow + 1][blompyColumn] = null;
-            }
+//        if (command.equals("g")) {
+//            if(blompyRow == 0 && blompyColumn == 0 || blompyRow == 9 && blompyColumn == 0) {
+//                System.out.println("You cannot move any further.");
+//            } else if(blompyRow == 0 && blompyColumn == 14){
+//                blompyColumn = blompyColumn -1;
+//                board[blompyRow][blompyColumn +1] = topRightCorner;
+//            } else if(blompyRow == 9 && blompyColumn == 14){
+//                blompyColumn = blompyColumn -1;
+//                board[blompyRow][blompyColumn +1] = botRightCorner;
+//                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//            } else if(blompyRow == 8 && blompyColumn == randNumColumn){
+//                blompyColumn = blompyColumn -1;
+//                board[blompyRow][blompyColumn +1] = null;
+//                System.out.println("An old wise owl passed along some wisdom. +1");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//            } else if(blompyRow == 0 || blompyRow == 9){
+//                blompyColumn = blompyColumn -1;
+//                board[blompyRow][blompyColumn +1] = borderWall;
+//            } else if(blompyColumn ==0 || blompyColumn == 14) {
+//                blompyColumn = blompyColumn - 1;
+//                board[blompyRow][blompyColumn + 1] = verticalBorderWall;
+//            } else if (blompyRow == 5 && blompyColumn == 7) {
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//                blompyCharacterTraits.put("Compassion", compassion +2);
+//                blompyColumn = blompyColumn - 1;
+//                board[blompyRow][blompyColumn + 1] = null;
+//                System.out.println("You have gained wisdom and compassion");
+//            }
+//            else {
+//                blompyColumn = blompyColumn - 1;
+//                board[blompyRow][blompyColumn + 1] = null;
+//            }
+//            //going right
+//        } else if (command.equals("h")) {
+//            if(blompyRow == 0 && blompyColumn == 1) {
+//                blompyColumn = blompyColumn +1;
+//                board[blompyRow][blompyColumn -1] = borderWall;
+//                System.out.println("Something bad happened! If you're wise, you lost 1!");
+//                if(blompyCharacterTraits.get("Wisdom") > 0){
+//                    blompyCharacterTraits.put("Wisdom", wisdom -1);
+//                }
+//            } else if(blompyRow == 9 && blompyColumn == 13) {
+//                blompyColumn = blompyColumn +1;
+//                board[blompyRow][blompyColumn -1] = borderWall;
+//                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//            } else if((blompyRow == 0) && (blompyColumn == 0)){
+//                blompyColumn = blompyColumn + 1;
+//                board[blompyRow][blompyColumn -1] = topLeftCorner;
+//            } else if((blompyRow == 9) && (blompyColumn == 0)) {
+//                blompyColumn = blompyColumn + 1;
+//                board[blompyRow][blompyColumn - 1] = botLeftCorner;
+//            } else if(blompyColumn == 0){
+//                blompyColumn = blompyColumn + 1;
+//                board[blompyRow][blompyColumn -1] = verticalBorderWall;
+//            } else if(blompyRow == 0 || blompyRow == 9){
+//                blompyColumn = blompyColumn + 1;
+//                board[blompyRow][blompyColumn -1] = borderWall;
+//            } else if(blompyRow == 13 && blompyColumn == 0) {
+//                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
+//            } else if (blompyRow == 5 && blompyColumn == 7) {
+//                blompyColumn = blompyColumn +1;
+//                board[blompyRow][blompyColumn -1] = null;
+//                System.out.println("You have gained wisdom and compassion");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//                blompyCharacterTraits.put("Courage", courage +2);
+//            } else {
+//                blompyColumn = blompyColumn +1;
+//                board[blompyRow][blompyColumn -1] = null;
+//            }
+//            //going down
+//        } else if(command.equals("b")){
+//            if (blompyRow == 0 && blompyColumn == 0){
+//                blompyRow = blompyRow + 1;
+//                board[blompyRow - 1][blompyColumn] = topLeftCorner;
+//            } else if(blompyRow == 0 && blompyColumn == 14) {
+//                blompyRow = blompyRow +1;
+//                board[blompyRow -1][blompyColumn] = topRightCorner;
+//            } else if (blompyColumn == 0 || blompyColumn == 14){
+//                blompyRow = blompyRow +1;
+//                board[blompyRow -1][blompyColumn] = verticalBorderWall;
+//            } else if(blompyRow == 13 && blompyColumn == 0) {
+//                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
+//                blompyColumn = blompyColumn - 1;
+//                board[blompyRow][blompyColumn + 1] = verticalBorderWall;
+//            } else if (blompyRow == 0){
+//                blompyRow = blompyRow +1;
+//                board[blompyRow -1][blompyColumn] = borderWall;
+//            } else if(blompyRow == 9 && blompyColumn == 14) {
+//                blompyRow = blompyRow +1;
+//                board[blompyRow -1][blompyColumn] = botRightCorner;
+//                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//            } else if(blompyRow == 5 && blompyColumn == 7) {
+//                blompyRow = blompyRow + 1;
+//                board[blompyRow - 1][blompyColumn] = null;
+//                System.out.println("You have gained wisdom and compassion");
+//                blompyCharacterTraits.put("Wisdom", wisdom + 1);
+//                blompyCharacterTraits.put("Courage", courage + 2);
+//            } else if(blompyRow == randNumRow && blompyColumn == 5) {
+//                blompyColumn = blompyColumn - 1;
+//                board[blompyRow][blompyColumn + 1] = null;
+//                System.out.println("An old wise owl passed along some wisdom. +1");
+//                blompyCharacterTraits.put("Wisdom", wisdom + 1);
+//            } else {
+//                blompyRow = blompyRow +1;
+//                board[blompyRow -1][blompyColumn] = null;
+//            }
+//            //going up
+//        } else if(command.equals("y")){
+//            if(blompyRow == 0){
+//                System.out.println("You cannot move any further.");
+//            }  else if(blompyColumn == 0 && blompyRow == 9){
+//                blompyRow = blompyRow - 1;
+//                board[blompyRow +1][blompyColumn] = botLeftCorner;
+//            } else if(blompyColumn == 14 && blompyRow == 9){
+//                blompyRow = blompyRow - 1;
+//                board[blompyRow +1][blompyColumn] = botRightCorner;
+//                System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//            }  else if(board[8][0]==blompy1 || board[8][0]==blompy2) {
+//                if(quest1called == 0) {
+//                    quest1called++;
+//                    blompyQuest1Prompt();
+//                    responseBlompyQuest1(blompyLevel1Quest);
+//                }
+//                    blompyQuest1Tracker(blompyLevel1Quest,board, blompy1, blompy2);
+//            } else if(blompyColumn == 0 || blompyColumn == 14) {
+//                blompyRow = blompyRow - 1;
+//                board[blompyRow + 1][blompyColumn] = verticalBorderWall;
+//
+//            } else if(blompyRow == 13 && blompyColumn == 0) {
+//                blompyQuest1Tracker(blompyLevel1Quest, board, blompy1, blompy2);
+//            } else if (blompyRow == 5 && blompyColumn == 7) {
+//                blompyRow = blompyRow - 1;
+//                board[blompyRow + 1][blompyColumn] = null;
+//                System.out.println("You have gained wisdom and compassion");
+//                blompyCharacterTraits.put("Wisdom", wisdom +1);
+//                blompyCharacterTraits.put("Courage", courage +2);
+//            } else {
+//                blompyRow = blompyRow - 1;
+//                board[blompyRow + 1][blompyColumn] = null;
+//            }
             //checking character traits
-        } else if(command.equals("q")){
+//        }
+        if(command.equals("q")){
             System.out.println(blompyCharacterTraits);
         } else if(command.equals("p")){
             System.out.println(blompyLevel1Quest);
@@ -279,17 +280,18 @@ public class MainGame {
 
 
     }
-    public void wisdomAndCourage(int blompyRow, int blompyColumn, int wisdom, Map<String,Integer> blompyCharacterTraits, int randNumColumn,int compassion){
-        if(blompyRow == 9 && blompyColumn == 14){
+    public void wisdomAndCourage(int blompyRow, int blompyColumn, int wisdom, Map<String,Integer> blompyCharacterTraits, int randNumColumn,int compassion) {
+        if (blompyRow == 9 && blompyColumn == 14) {
             System.out.println("You've eaten an enlightened jelly fruit and now you're wiser.");
-            blompyCharacterTraits.put("Wisdom", wisdom +1);
-        } else if(blompyRow == 8 && blompyColumn == randNumColumn){
+            blompyCharacterTraits.put("Wisdom", wisdom + 1);
+        } else if (blompyRow == 8 && blompyColumn == randNumColumn) {
             System.out.println("An old wise owl passed along some wisdom. +1");
-            blompyCharacterTraits.put("Wisdom", wisdom +1);
-        } else if(blompyRow == 5 && blompyColumn == 7) {
-            blompyCharacterTraits.put("Wisdom", wisdom +1);
-            blompyCharacterTraits.put("Compassion", compassion +2);
+            blompyCharacterTraits.put("Wisdom", wisdom + 1);
+        } else if (blompyRow == 5 && blompyColumn == 7) {
+            blompyCharacterTraits.put("Wisdom", wisdom + 1);
+            blompyCharacterTraits.put("Compassion", compassion + 2);
             System.out.println("You have gained wisdom and compassion");
+        }
     }
 
 
@@ -421,10 +423,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
     } return location;
     }
 
-    public void hitTopLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topLeftCorner, String command) {
+    public int[] hitTopLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topLeftCorner, String command) {
         int[] location = findLocation(board, blompy1);
         if(location == null)
-            location = findLocation(board, blompy2);
+         location = findLocation(board, blompy2);
      if(command.equals("b")){
             blompyRow = blompyRow + 1;
             board[blompyRow - 1][blompyColumn] = topLeftCorner;
@@ -432,9 +434,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyColumn = blompyColumn + 1;
             board[blompyRow][blompyColumn -1] = topLeftCorner;
         }
+     return location;
     }
 
-    public void hitTopRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topRightCorner, String command) {
+    public int[] hitTopRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topRightCorner, String command) {
         int[] location = findLocation(board, blompy1);
         if(location == null)
             location = findLocation(board, blompy2);
@@ -445,9 +448,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyColumn = blompyColumn -1;
             board[blompyRow][blompyColumn +1] = topRightCorner;
         }
+        return location;
     }
 
-    public void hitBotRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent botRightCorner, String command) {
+    public int[] hitBotRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent botRightCorner, String command) {
         int[] location = findLocation(board, blompy1);
         if(location == null)
             location = findLocation(board, blompy2);
@@ -458,9 +462,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyRow = blompyRow - 1;
             board[blompyRow +1][blompyColumn] = botRightCorner;
         }
+        return location;
     }
 
-    public void hitBotLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent botLeftCorner, String command) {
+    public int[] hitBotLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent botLeftCorner, String command) {
         int[] location = findLocation(board, blompy1);
         if(location == null)
             location = findLocation(board, blompy2);
@@ -471,8 +476,9 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyRow = blompyRow - 1;
             board[blompyRow +1][blompyColumn] = botLeftCorner;
         }
+        return location;
     }
-    public void borderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent borderWall, String command) {
+    public int[] borderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent borderWall, String command) {
         int[] location = findLocation(board, blompy1);
         if (location == null)
             location = findLocation(board, blompy2);
@@ -483,8 +489,9 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyColumn = blompyColumn + 1;
             board[blompyRow][blompyColumn - 1] = borderWall;
         }
+        return location;
     }
-        public void vertBorderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent verticalBorderWall, String command) {
+        public int[] vertBorderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent verticalBorderWall, String command) {
             int[] location = findLocation(board, blompy1);
             if(location == null)
                 location = findLocation(board, blompy2);
@@ -495,9 +502,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
                 blompyColumn = blompyColumn - 1;
                 board[blompyRow][blompyColumn + 1] = verticalBorderWall;
             }
+            return location;
     }
 
-    public void emptySpace(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, String command) {
+    public int[] emptySpace(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, String command) {
         int[] location = findLocation(board, blompy1);
         if (location == null)
             location = findLocation(board, blompy2);
@@ -514,6 +522,7 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
             blompyColumn = blompyColumn + 1;
             board[blompyRow][blompyColumn - 1] = null;
         }
+        return location;
     }
 
 
