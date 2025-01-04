@@ -307,7 +307,7 @@ public class MainGame {
 
 
 
-        }
+
 
         private static void blompyQuest1Prompt() {
             System.out.println("Greetings dear reader. This scroll contains the ingredients of a special");
