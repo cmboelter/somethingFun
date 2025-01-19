@@ -76,7 +76,7 @@ class MainGameTest {
     }
 
     @Test
-    void whereDoesBlompyWannaGoTestY(){
+    void whereDoesBlompyWannaGoTestUp(){
 
         //Create a blompy location
         board[1][0] = blompy1;
@@ -87,23 +87,71 @@ class MainGameTest {
         Assertions.assertArrayEquals(expected,outcome);
 
     }
+
+    @Test
+    void whereDoesBlompyWannaGoTestDown(){
+        //Create a blompy location
+        board[1][0] = blompy1;
+        //where blompy should end up
+        int[] outcome = blompy1.whereDoesBlompyWannaGo(board, blompy1, blompy2, "b");
+        int[] expected = {2,0};
+
+        Assertions.assertArrayEquals(expected,outcome);
+    }
+
+    @Test
+    void whereDoesBlompyWannaGoTestLeft(){
+        //Create a blompy location
+        board[1][2] = blompy1;
+        //where blompy should end up
+        int[] outcome = blompy1.whereDoesBlompyWannaGo(board, blompy1, blompy2, "g");
+        int[] expected = {1,1};
+
+        Assertions.assertArrayEquals(expected,outcome);
+        //Getting arrayindexoutofboundsexception: index 10 out of bounds for length 10 for this test.
+    }
+
+
+    @Test
+    void whereDoesBlompyWannaGoTestRight(){
+        //Create a blompy location
+        board[0][0] = blompy1;
+        //where blompy should end up
+        int[] outcome = blompy1.whereDoesBlompyWannaGo(board, blompy1, blompy2, "h");
+        int[] expected = {0,1};
+
+        Assertions.assertArrayEquals(expected,outcome);
+    }
+
+    @Test
+    void leaveTopLeftCornerDown(){
+        //Create a blompy at top left corner
+       board[blompyRow][blompyColumn] = blompy1;
+        //Corner should be visible in it's place when it moves down
+       FieldContent expected = topLeftCorner;
+       FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "b");
+       Assertions.assertEquals(expected, outcome);
+    }
+
+    @Test
+    void leaveTopLeftCornerRight(){
+        //Create a blompy at top left corner
+        board[blompyRow][blompyColumn] = blompy1;
+        //Corner should be visible in it's place when it moves down
+        FieldContent expected = topLeftCorner;
+        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "h");
+        Assertions.assertEquals(expected, outcome);
+    }
+
+    @Test
+    void leaveTopLeftCornerWrongEntryB(){
+        //Create a blompy at top left corner
+        board[blompyRow][blompyColumn] = blompy1;
+        //Corner should be visible in it's place when it moves down
+        FieldContent expected = topLeftCorner;
+        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "b");
+        Assertions.assertEquals(expected, outcome);
+    }
 }
 
-//    public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1, FieldContent blompy2, String command) {
-//        int[] location = findLocation(board, blompy1);
-//        if(location == null)
-//            location = findLocation(board, blompy2);
-//        if(command.equals("y")){
-//            location[0] += 1;
-//            return location;
-//        } else if(command.equals("b")){
-//            location[0] -= 1;
-//            return location;
-//        } else if(command.equals("g")){
-//            location[1] -= 1;
-//            return location;
-//        } else if(command.equals("h")){
-//            location[1] += 1;
-//            return location;
-//        } return location;
-//    }
+

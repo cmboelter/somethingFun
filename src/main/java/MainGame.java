@@ -415,7 +415,7 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
         location[0] += 1;
         return location;
     } else if(command.equals("g")){
-        location[1] -= 1;
+            location[1] -= 1;
         return location;
     } else if(command.equals("h")){
         location[1] += 1;
@@ -423,19 +423,19 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
     } return location;
     }
 
-    public int[] hitTopLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topLeftCorner, String command) {
-        int[] location = findLocation(board, blompy1);
-        if(location == null)
-         location = findLocation(board, blompy2);
-     if(command.equals("b")){
-            blompyRow = blompyRow + 1;
-            board[blompyRow - 1][blompyColumn] = topLeftCorner;
-        } else if(command.equals("h")){
-            blompyColumn = blompyColumn + 1;
-            board[blompyRow][blompyColumn -1] = topLeftCorner;
+    public FieldContent leaveTopLeftCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent topLeftCorner, String command) {
+        if (blompyColumn == 0 && blompyRow == 0) {
+            if (command.equals("b")) {
+                blompyRow = blompyRow + 1;
+                return board[blompyRow - 1][blompyColumn] = topLeftCorner;
+            } else if (command.equals("h")) {
+                blompyColumn = blompyColumn + 1;
+                return board[blompyRow][blompyColumn - 1] = topLeftCorner;
+            }
         }
-     return location;
+        return board[blompyRow][blompyColumn];
     }
+
 
     public int[] hitTopRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topRightCorner, String command) {
         int[] location = findLocation(board, blompy1);
