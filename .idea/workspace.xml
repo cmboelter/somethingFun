@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="updates to borders on board methods to return an int[]">
-      <change afterPath="$PROJECT_DIR$/src/test/java/MainGameTest.java" afterDir="false" />
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="trying to set up a test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MainGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +52,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.MainGameTest.whereDoesBlompyWannaGoTestY">
     <configuration name="MainGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MainGame" />
       <module name="somethingFun" />
@@ -60,8 +60,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MainGameTest.whereDoesBlompyWannaGoTestY" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="somethingFun" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="MainGameTest" />
+      <option name="METHOD_NAME" value="whereDoesBlompyWannaGoTestY" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.MainGameTest.whereDoesBlompyWannaGoTestY" />
         <item itemvalue="Application.MainGame" />
       </list>
     </recent_temporary>
@@ -313,7 +324,14 @@
       <option name="project" value="LOCAL" />
       <updated>1735594679841</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="trying to set up a test">
+      <created>1735966979268</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1735966979269</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -328,7 +346,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="getLocation, updateStuffOnBoard, readCommandFromUser, and other random stuff" />
     <MESSAGE value="updates" />
     <MESSAGE value="updates w/Tom" />
     <MESSAGE value="updates w/Tom2" />
@@ -353,6 +370,7 @@
     <MESSAGE value="refactor work" />
     <MESSAGE value="refactor work with events for wisdom/courage" />
     <MESSAGE value="updates to borders on board methods to return an int[]" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates to borders on board methods to return an int[]" />
+    <MESSAGE value="trying to set up a test" />
+    <option name="LAST_COMMIT_MESSAGE" value="trying to set up a test" />
   </component>
 </project>

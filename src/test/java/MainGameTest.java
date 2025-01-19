@@ -1,26 +1,31 @@
+import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class MainGameTest {
 
-    FieldContent[][] board = new FieldContent[10][15];
-    FieldContent blompy1 = new FieldContent("b");
-    FieldContent blompy2 = new FieldContent("B");
-    FieldContent topLeftCorner = new FieldContent("┏");
-    FieldContent topRightCorner = new FieldContent("┓");
-    FieldContent botLeftCorner = new FieldContent("┗");
-    FieldContent botRightCorner = new FieldContent("┛");
-    FieldContent borderWall = new FieldContent("━");
-    FieldContent verticalBorderWall = new FieldContent("┃");
+
+    private FieldContent[][] board = new FieldContent[10][15];
+    private FieldContent blompy1 = new FieldContent("b");
+    private FieldContent blompy2 = new FieldContent("B");
+    private FieldContent topLeftCorner = new FieldContent("┏");
+    private FieldContent topRightCorner = new FieldContent("┓");
+    private FieldContent botLeftCorner = new FieldContent("┗");
+    private FieldContent botRightCorner = new FieldContent("┛");
+    private FieldContent borderWall = new FieldContent("━");
+    private FieldContent verticalBorderWall = new FieldContent("┃");
 
     int blompyRow = 0;
     int blompyColumn = 0;
 
 
-    @Test
-    void whereDoesBlompyWannaGoTestY(){
+
+    @Before
+    public void createBoard(){
         board[0][0] = topLeftCorner;
         board[0][1] = borderWall;
         board[0][2] = borderWall;
@@ -68,11 +73,18 @@ class MainGameTest {
         board[9][13] = borderWall;
         board[9][14] = botRightCorner;
 
+    }
 
+    @Test
+    void whereDoesBlompyWannaGoTestY(){
 
-        int[] expected = {0,1};
+        //Create a blompy location
+        board[1][0] = blompy1;
+        //where blompy should end up
+        int[] outcome = blompy1.whereDoesBlompyWannaGo(board, blompy1, blompy2, "y");
+        int[] expected = {0,0};
 
-        Assertions.assertArrayEquals(expected, whereDoesBlompyWannaGo(board, blompy1, blompy2, "y"));
+        Assertions.assertArrayEquals(expected,outcome);
 
     }
 }

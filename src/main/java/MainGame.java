@@ -409,10 +409,10 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
     if(location == null)
         location = findLocation(board, blompy2);
     if(command.equals("y")){
-        location[0] += 1;
+        location[0] -= 1;
         return location;
     } else if(command.equals("b")){
-        location[0] -= 1;
+        location[0] += 1;
         return location;
     } else if(command.equals("g")){
         location[1] -= 1;
