@@ -427,15 +427,17 @@ public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1
         if (blompyColumn == 0 && blompyRow == 0) {
             if (command.equals("b")) {
                 blompyRow = blompyRow + 1;
-                return board[blompyRow - 1][blompyColumn] = topLeftCorner;
+                return board[blompyRow -1][blompyColumn] = topLeftCorner;
             } else if (command.equals("h")) {
                 blompyColumn = blompyColumn + 1;
-                return board[blompyRow][blompyColumn - 1] = topLeftCorner;
+                return board[blompyRow][blompyColumn -1] = topLeftCorner;
             }
         }
         return board[blompyRow][blompyColumn];
     }
-
+//if (blompyRow == 0 && blompyColumn == 0){
+//                blompyRow = blompyRow + 1;
+//                board[blompyRow - 1][blompyColumn] = topLeftCorner;
 
     public int[] hitTopRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topRightCorner, String command) {
         int[] location = findLocation(board, blompy1);

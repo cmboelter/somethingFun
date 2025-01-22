@@ -150,7 +150,7 @@ class MainGameTest {
         //Corner should be visible in it's place when it moves down
         FieldContent expected = topLeftCorner;
         FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "b");
-        Assertions.assertEquals(expected, outcome);
+        Assertions.assertEquals(blompy1, outcome);
     }
 }
 

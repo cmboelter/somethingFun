@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="first test working and correction to tested method">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="topLeftCorner tests in progress">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MainGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainGameTest.java" afterDir="false" />
@@ -51,7 +51,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainGameTest.leaveTopLeftCornerWrongEntryB">
+  <component name="RunManager" selected="JUnit.MainGameTest.leaveTopLeftCornerRight">
     <configuration name="MainGameTest.leaveTopLeftCornerDown" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="somethingFun" />
       <option name="PACKAGE_NAME" value="" />
@@ -104,9 +104,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MainGameTest.leaveTopLeftCornerWrongEntryB" />
         <item itemvalue="JUnit.MainGameTest.leaveTopLeftCornerRight" />
         <item itemvalue="JUnit.MainGameTest.leaveTopLeftCornerDown" />
+        <item itemvalue="JUnit.MainGameTest.leaveTopLeftCornerWrongEntryB" />
         <item itemvalue="JUnit.MainGameTest.whereDoesBlompyWannaGoTestLeft" />
         <item itemvalue="JUnit.MainGameTest.whereDoesBlompyWannaGodTestRight" />
       </list>
@@ -373,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737317516781</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="topLeftCorner tests in progress">
+      <created>1737323309379</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1737323309380</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -388,7 +395,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updates w/Tom" />
     <MESSAGE value="updates w/Tom2" />
     <MESSAGE value="fixed printout" />
     <MESSAGE value="game loop" />
@@ -413,6 +419,7 @@
     <MESSAGE value="updates to borders on board methods to return an int[]" />
     <MESSAGE value="trying to set up a test" />
     <MESSAGE value="first test working and correction to tested method" />
-    <option name="LAST_COMMIT_MESSAGE" value="first test working and correction to tested method" />
+    <MESSAGE value="topLeftCorner tests in progress" />
+    <option name="LAST_COMMIT_MESSAGE" value="topLeftCorner tests in progress" />
   </component>
 </project>
