@@ -129,7 +129,7 @@ class MainGameTest {
        board[blompyRow][blompyColumn] = blompy1;
         //Corner should be visible in it's place when it moves down
        FieldContent expected = topLeftCorner;
-       FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "b");
+       FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompy1, blompyColumn,blompyRow,topLeftCorner, "b");
        Assertions.assertEquals(expected, outcome);
     }
 
@@ -144,14 +144,47 @@ class MainGameTest {
     }
 
     @Test
-    void leaveTopLeftCornerWrongEntryB(){
+    void leaveTopLeftCornerWrongEntryT(){
+        //Create a blompy at top left corner
+        board[blompyRow][blompyColumn] = blompy1;
+        //Blompy should be shown when
+        FieldContent expected = blompy1;
+        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "t");
+        Assertions.assertEquals(expected, outcome);
+    }
+
+    @Test
+    void leaveTopRightCornerB(){
         //Create a blompy at top left corner
         board[blompyRow][blompyColumn] = blompy1;
         //Corner should be visible in it's place when it moves down
-        FieldContent expected = topLeftCorner;
-        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topLeftCorner, "b");
+        FieldContent expected = topRightCorner;
+        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topRightCorner, "b");
         Assertions.assertEquals(blompy1, outcome);
     }
+
+    void leaveTopRightCornerG(){
+        //Create a blompy at top left corner
+        board[blompyRow][blompyColumn] = blompy1;
+        //Corner should be visible in it's place when it moves down
+        FieldContent expected = topRightCorner;
+        FieldContent outcome = blompy1.leaveTopLeftCorner(board, blompyColumn,blompyRow,topRightCorner, "b");
+        Assertions.assertEquals(blompy1, outcome);
+    }
+
+//    public int[] leaveTopRightCorner(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent topRightCorner, String command) {
+//        int[] location = findLocation(board, blompy1);
+//        if(location == null)
+//            location = findLocation(board, blompy2);
+//        if(command.equals("b")){
+//            blompyRow = blompyRow +1;
+//            board[blompyRow -1][blompyColumn] = topRightCorner;
+//        } else if(command.equals("g")){
+//            blompyColumn = blompyColumn -1;
+//            board[blompyRow][blompyColumn +1] = topRightCorner;
+//        }
+//        return location;
+//    }
 }
 
 
