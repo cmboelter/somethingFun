@@ -113,16 +113,20 @@ public class MainGame {
                 blompy1 = blompy2;
             }
 
+            int[] update = whereDoesBlompyWannaGo(board,blompy1,blompy2,command);
+            blompyRow = update[0];
+            blompyColumn = update[1];
+            updateBoard(board,topLeftCorner,verticalBorderWall,blompyRow,blompyColumn);
 
-            int[] updateBlompyLocation = leaveTopLeftCorner(board, blompy1, blompyRow, blompyColumn, topLeftCorner, command);
-            blompyRow = updateBlompyLocation[0];
-            blompyColumn = updateBlompyLocation[1];
+
+
 //            leaveTopRightCorner(board, blompyColumn, blompyRow, blompy1, blompy2, topRightCorner, command);
 //            hitBotLeftCorner(board, blompyColumn, blompyRow, blompy1, blompy2, botLeftCorner, command);
 //            hitBotLeftCorner(board, blompyColumn, blompyRow, blompy1, blompy2, botLeftCorner, command);
             borderWall(board, blompyColumn, blompyRow, blompy1, blompy2, borderWall, command);
 //            verticalBorderWall(board, blompyColumn, blompyRow, blompy1, blompy2, verticalBorderWall, command);
 //            Movement.emptySpace(board,blompyColumn, blompyRow, blompy1, blompy2, command);
+
 
         //going left
 //        if (command.equals("g")) {
@@ -422,24 +426,37 @@ public class MainGame {
                     System.out.println("You can't");
             }
     }
-    public int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1, FieldContent blompy2, String command) {
-    int[] location = findLocation(board, blompy1);
-    if(location == null)
-        location = findLocation(board, blompy2);
-    if(command.equals("y")){
-        location[0] -= 1;
-        return location;
-    } else if(command.equals("b")){
-        location[0] += 1;
-        return location;
-    } else if(command.equals("g")){
-            location[1] -= 1;
-        return location;
-    } else if(command.equals("h")){
-        location[1] += 1;
-        return location;
-    } return location;
+    public static int[] whereDoesBlompyWannaGo(FieldContent[][] board, FieldContent blompy1, FieldContent blompy2, String command) {
+        int[] location = findLocation(board, blompy1);
+        if (location == null)
+            location = findLocation(board, blompy2);
+        while (true) {
+            if (command.equals("y")) {
+                location[1]--;
+                return new int[]{location[0], location[1]};
+            } else if (command.equals("b")) {
+                location[0]++;
+                return new int[]{location[0], location[1]};
+            } else if (command.equals("g")) {
+                location[1]--;
+                return new int[]{location[0], location[1]};
+            } else if (command.equals("h")) {
+                location[1]++;
+            }
+            return new int[]{location[0], location[1]};
+        }
     }
+
+    public static FieldContent updateBoard(FieldContent[][] board, FieldContent topLeftCorner, FieldContent verticalBorderWall, int blompyRow, int blompyColumn){
+        if(blompyRow == 1 && blompyColumn == 0){
+            board[blompyRow-1][blompyColumn] = topLeftCorner;
+            return topLeftCorner;
+        } else if(blompyRow > 1 && blompyRow <= 9){
+            board[blompyRow -1][blompyColumn] = verticalBorderWall;
+            return verticalBorderWall;
+        }
+            return null;
+    };
 
     public static int[] leaveTopLeftCorner(FieldContent[][] board, FieldContent blompy1, int row, int column, FieldContent topLeftCorner, String command) {
         if (row == 0 && column == 0) {
@@ -503,17 +520,33 @@ public class MainGame {
     }
     public static int[] borderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent borderWall, String command) {
         int[] location = findLocation(board, blompy1);
-        if (location == null)
-            location = findLocation(board, blompy2);
-        if (command.equals("g")) {
+        if (command.equals("g") && location[1] == 0) {
             blompyColumn = blompyColumn - 1;
             board[blompyRow][blompyColumn + 1] = borderWall;
-        } else if (command.equals("h")) {
-            blompyColumn = blompyColumn + 1;
+        } else if (command.equals("h") && location[0] == 0) {
+            blompyRow = blompyColumn + 1;
             board[blompyRow][blompyColumn - 1] = borderWall;
         }
-        return location;
+        return new int[] {blompyRow, blompyColumn};
     }
+
+//     if (row == 0 && column == 0) {
+//        if (command.equals("b")) {
+//            // Move down
+//            board[row][column] = topLeftCorner; // Update the current position
+//            row++; // Update row position
+//            board[row][column] = blompy1; // Place blompy in the new position
+//        } else if (command.equals("h")) {
+//            // Move right
+//            board[row][column] = topLeftCorner; // Update the current position
+//            column++; // Move column to the right
+//            board[row][column] = blompy1; // Place blompy in the new position
+//        }
+//    }
+
+    // Return updated row and column
+
+
         public static int[] verticalBorderWall(FieldContent[][] board, int blompyColumn, int blompyRow, FieldContent blompy1, FieldContent blompy2, FieldContent verticalBorderWall, String command) {
             int[] location = findLocation(board, blompy1);
             if(location == null)

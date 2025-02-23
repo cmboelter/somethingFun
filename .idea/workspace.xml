@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="topLeftCorner tests modifications in main class and test class">
+    <list default="true" id="9a2c927f-d32c-4dbe-a157-168240574f7f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MainGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MainGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Movement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Movement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MainGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MainGameTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -385,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1737578591857</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="topLeftCorner redo">
+      <created>1737947488639</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1737947488640</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -400,7 +405,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed printout" />
     <MESSAGE value="game loop" />
     <MESSAGE value="moving blompy to the right on border and replacing its former index" />
     <MESSAGE value="moving blompy to the left and not beyond" />
@@ -425,6 +429,7 @@
     <MESSAGE value="first test working and correction to tested method" />
     <MESSAGE value="topLeftCorner tests in progress" />
     <MESSAGE value="topLeftCorner tests modifications in main class and test class" />
-    <option name="LAST_COMMIT_MESSAGE" value="topLeftCorner tests modifications in main class and test class" />
+    <MESSAGE value="topLeftCorner redo" />
+    <option name="LAST_COMMIT_MESSAGE" value="topLeftCorner redo" />
   </component>
 </project>
